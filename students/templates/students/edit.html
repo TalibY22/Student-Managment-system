@@ -1,0 +1,39 @@
+{% extends "students/base.html"%}
+
+{%block body%}
+
+<h3 class="text-center m-4">Update details</h3>
+{% if success %}
+<div class="alert  alert-success">The details have been updated succesfully <a href="{%url 'Index'%}">Go to homepage</a> </div>
+
+{% else %}
+<div class="row justify-content-center">
+<div class="col-6">
+ 
+    <div class="card text-white bg-dark mb-3">
+        <div class="card-header"><i class="fa-light fa-pen-to-square"></i>Student details</div>
+        <div class="card-body">
+          <form   method="post">
+
+            {% csrf_token %}
+
+           {{form.as_p}}
+
+          <button type="submit" class="btn btn-secondary">Update</button>
+
+          </form>
+        </div>
+      </div>
+
+
+</div>
+
+</div>
+
+
+
+
+{% endif %}
+
+
+{% endblock %}
